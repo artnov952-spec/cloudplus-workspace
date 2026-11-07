@@ -1,3 +1,4 @@
 'use strict';
-// No grant exchange until the CRM server contract is agreed. Never log/store URL credentials.
-if (location.search || location.hash) { history.replaceState(null, '', location.pathname); document.getElementById('status').textContent='Параметры входа удалены из адресной строки. Пропуск не обменен: подключение CRM еще не включено.'; }
+CP_AUTH.callback().catch(()=>{
+ document.getElementById('status').textContent='Вход не завершен. Пропуск истек, состояние входа не совпало или CRM еще не включила подключение. Вернитесь в календарь и начните вход заново.';
+});
